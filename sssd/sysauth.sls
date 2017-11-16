@@ -7,8 +7,8 @@ include:
   - sssd
 
 sssd-sysauth-req-authconfig:
-  pkg:
-    - installed
+  pkg.installed:
+    - name: authconfig
 
 authconfig_updateall:
   cmd.run:
