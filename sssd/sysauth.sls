@@ -16,6 +16,8 @@ authconfig_updateall:
     - unless: test "`authconfig {{ sssd_settings.authconfig.updateall_args }} --updateall --test`" = "`authconfig --test`"
     - require:
       - pkg: sssd-sysauth-req-authconfig
+{% if sssd_settings.service.manage == True %}
       - service: service-sssd
+{% endif %}
 
 {# EOF #}
