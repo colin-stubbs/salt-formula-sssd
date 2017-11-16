@@ -6,7 +6,7 @@
 include:
   - sssd
 
-authconfig:
+sssd-sysauth-req-authconfig:
   pkg:
     - installed
 
@@ -15,6 +15,7 @@ authconfig_updateall:
     - name: authconfig {{ sssd_settings.authconfig.updateall_args }} --updateall
     - unless: test "`authconfig {{ sssd_settings.authconfig.updateall_args }} --updateall --test`" = "`authconfig --test`"
     - require:
-      - pkg: authconfig
+      - pkg: sssd-sysauth-req-authconfig
+      - service: service-sssd
 
 {# EOF #}
