@@ -1,0 +1,24 @@
+sssd:
+  lookup:
+    pkgs:
+      - sssd
+      - sssd-common
+      - sssd-client
+    user: root
+    group: root
+    service: sssd
+    locations:
+      config_file: '/etc/sssd/sssd.conf'
+      conf_d_dir: '/etc/sssd/conf.d'
+      ca_certs_dir: '/etc/sssd/certs'
+  service:
+    manage: False
+  config:
+    manage: False
+    ca_certificates: ''
+    options:
+      sssd:
+        config_file_version: 2
+        services: 'nss, pam'
+  authconfig:
+    updateall_args: '--enablesssd --enablesssdauth'

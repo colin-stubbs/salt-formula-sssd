@@ -1,0 +1,8 @@
+{% import_yaml 'sssd/defaults.yaml' as default_settings %}
+
+{% set sssd_settings = salt['pillar.get'](
+    'sssd',
+    default=default_settings.sssd,
+    merge=True
+  )
+%}
