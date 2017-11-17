@@ -55,4 +55,4 @@ sssd:
         ldap_tls_cacert: '/etc/sssd/certs/ca-certificates.crt'
         sudo_provider: none
   authconfig:
-    updateall_args: '--enablesssd --enablesssdauth --disableldap --disableldapauth --enablemkhomedir'
+    updateall_args: '--enablesssd --enablesssdauth --disableldap --disableldapauth --enablemkhomedir --updateall'

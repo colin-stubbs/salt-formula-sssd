@@ -12,8 +12,8 @@ sssd-sysauth-req-authconfig:
 
 authconfig_updateall:
   cmd.run:
-    - name: authconfig {{ sssd_settings.authconfig.updateall_args }} --updateall
-    - unless: test "`authconfig {{ sssd_settings.authconfig.updateall_args }} --updateall --test`" = "`authconfig --test`"
+    - name: authconfig {{ sssd_settings.authconfig.updateall_args }}
+    - unless: test "`authconfig {{ sssd_settings.authconfig.updateall_args }} --test`" = "`authconfig --test`"
     - require:
       - pkg: sssd-sysauth-req-authconfig
 {% if sssd_settings.service.manage == True %}

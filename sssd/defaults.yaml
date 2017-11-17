@@ -21,4 +21,4 @@ sssd:
         config_file_version: 2
         services: 'nss, pam'
   authconfig:
-    updateall_args: '--enablesssd --enablesssdauth'
+    updateall_args: '--enablesssd --enablesssdauth --update'
