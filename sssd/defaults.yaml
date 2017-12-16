@@ -5,8 +5,8 @@ sssd:
       - sssd-common
       - sssd-client
     user: sssd
-    group: sssd
-    service: sssd
+    group: root
+    service: root
     locations:
       config_file: '/etc/sssd/sssd.conf'
       conf_d_dir: '/etc/sssd/conf.d'

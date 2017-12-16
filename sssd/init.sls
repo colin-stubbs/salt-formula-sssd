@@ -12,7 +12,7 @@ sssd:
   file.managed:
     - user: {{ sssd_settings.lookup.user }}
     - group: {{ sssd_settings.lookup.group }}
-    - mode: 640
+    - mode: 400
     - source: salt://sssd/files/sssd.conf
     - template: jinja
     - context:
