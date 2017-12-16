@@ -20,6 +20,7 @@ sssd:
     - require:
       - pkg: sssd
 
+{% if 'ca_certificates' in sssd_settings.config %}
 {{ sssd_settings.lookup.locations.ca_certs_dir }}:
   file.directory:
     - makedirs: True
@@ -37,6 +38,7 @@ sssd:
     - mode: 0640
     - require:
       - file: {{ sssd_settings.lookup.locations.ca_certs_dir }}
+{% endif %}
 {% endif %}
 
 {% if sssd_settings.service.manage == True %}
