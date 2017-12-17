@@ -6,7 +6,7 @@ sssd:
       - sssd-client
     user: root
     group: root
-    service: root
+    service: sssd
     locations:
       config_file: '/etc/sssd/sssd.conf'
       conf_d_dir: '/etc/sssd/conf.d'
