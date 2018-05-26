@@ -13,18 +13,17 @@
       },
     },
     'Debian': {
-        'pkgs': [ 'sssd' ],
-        'user': 'root',
-        'group': 'root',
-        'service': 'sssd',
-        'locations': {
-          'config_file': '/etc/sssd/sssd.conf',
-          'conf_d_dir': '/etc/sssd/conf.d',
-          'ca_certs_dir': '/etc/sssd/certs',
-        },
+      'pkgs': [ 'sssd' ],
+      'user': 'root',
+      'group': 'root',
+      'service': 'sssd',
+      'locations': {
+        'config_file': '/etc/sssd/sssd.conf',
+        'conf_d_dir': '/etc/sssd/conf.d',
+        'ca_certs_dir': '/etc/sssd/certs',
       },
     },
-  }, grain='os_family', default='default', merge=salt['pillar.get']('sssd:lookup')) %}
+  }, grain='os_family', default='default', merge=salt['pillar.get']('sssd:lookup') %}
 
 {% do default_settings.sssd.lookup.update(os_family_map) %}
 
