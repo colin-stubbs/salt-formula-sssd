@@ -23,7 +23,7 @@
         'ca_certs_dir': '/etc/sssd/certs',
       },
     },
-  }, grain='os_family', default='default', merge=salt['pillar.get']('sssd:lookup') %}
+  }, grain='os_family', default='default', merge=salt['pillar.get']('sssd:lookup')) %}
 
 {% do default_settings.sssd.lookup.update(os_family_map) %}
 
