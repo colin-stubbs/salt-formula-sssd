@@ -6,6 +6,7 @@
 include:
   - sssd
 
+{% if grains.os_family == 'RedHat' %}
 sssd-sysauth-req-authconfig:
   pkg.installed:
     - name: authconfig
@@ -18,6 +19,7 @@ authconfig_updateall:
       - pkg: sssd-sysauth-req-authconfig
 {% if sssd_settings.service.manage == True %}
       - service: service-sssd
+{% endif %}
 {% endif %}
 
 {# EOF #}

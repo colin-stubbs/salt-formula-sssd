@@ -1,9 +1,5 @@
 sssd:
   lookup:
-    pkgs:
-      - sssd
-      - sssd-common
-      - sssd-client
     user: root
     group: root
     service: sssd

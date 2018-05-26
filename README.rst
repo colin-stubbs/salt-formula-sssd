@@ -24,4 +24,9 @@ Installs the sssd package, manages the config file (sssd.conf) if desired, manag
 
 Utilises O/S specific methods to ensure sssd is utilised by the system.
 
+Tested with:
+* CentOS 7
+* Ubuntu LTS 16.04
+* Debian Stretch 9.4
+
 NOTE: Only does authconfig for RedHat based systems at this point.

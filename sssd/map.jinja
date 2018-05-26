@@ -1,8 +1,38 @@
 {% import_yaml 'sssd/defaults.yaml' as default_settings %}
 
+{% set os_family_map = salt['grains.filter_by']({
+    'RedHat': {
+      'pkgs': [ 'sssd', 'sssd-common', 'sssd-client' ],
+      'user': 'root',
+      'group': 'root',
+      'service': 'sssd',
+      'locations': {
+        'config_file': '/etc/sssd/sssd.conf',
+        'conf_d_dir': '/etc/sssd/conf.d',
+        'ca_certs_dir': '/etc/sssd/certs',
+      },
+    },
+    'Debian': {
+        'pkgs': [ 'sssd' ],
+        'user': 'root',
+        'group': 'root',
+        'service': 'sssd',
+        'locations': {
+          'config_file': '/etc/sssd/sssd.conf',
+          'conf_d_dir': '/etc/sssd/conf.d',
+          'ca_certs_dir': '/etc/sssd/certs',
+        },
+      },
+    },
+  }, grain='os_family', default='default', merge=salt['pillar.get']('sssd:lookup')) %}
+
+{% do default_settings.sssd.lookup.update(os_family_map) %}
+
 {% set sssd_settings = salt['pillar.get'](
     'sssd',
     default=default_settings.sssd,
-    merge=True
+    merge=True,
   )
 %}
+
+lookup:
