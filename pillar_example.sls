@@ -1,12 +1,4 @@
 sssd:
-  lookup:
-    pkgs:
-      - sssd
-      - sssd-common
-      - sssd-client
-      - sssd-tools
-    locations:
-      config_file: '/etc/sssd/sssd.conf'
   service:
     manage: True
   config:
