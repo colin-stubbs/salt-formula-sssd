@@ -18,7 +18,7 @@ sssd:
     - source: salt://sssd/files/sssd.conf
     - template: jinja
     - context:
-      config: {{ sssd_settings.config.options }}
+      config: {{ sssd_settings.config.options|tojson }}
     - require:
       - pkg: sssd
 
