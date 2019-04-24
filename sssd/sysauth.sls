@@ -1,5 +1,7 @@
 {# sssd.authconfig #}
 
+{% if grains.kernel == 'Linux' %}
+
 {## import settings from map.jinja ##}
 {% from "sssd/map.jinja" import sssd_settings with context %}
 
@@ -21,5 +23,7 @@ authconfig_updateall:
       - service: service-sssd
 {% endif %}
 {% endif %}
+
+{% endif %} {# grains.kernel == 'Linux' #}
 
 {# EOF #}

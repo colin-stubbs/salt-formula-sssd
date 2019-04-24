@@ -1,5 +1,7 @@
 {# sssd #}
 
+{% if grains.kernel == 'Linux' %}
+
 {## import settings from map.jinja ##}
 {% from "sssd/map.jinja" import sssd_settings with context %}
 
@@ -53,5 +55,7 @@ service-sssd:
       - pkg: sssd
       - file: {{ sssd_settings.lookup.locations.config_file }}
 {% endif %}
+
+{% endif %} {# grains.kernel == 'Linux' #}
 
 {# EOF #}
